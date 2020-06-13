@@ -120,12 +120,12 @@ const Points = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <TouchableOpacity onPress={handleNavigateBack}>
-          <Feather name="arrow-left" color="#34CB79" size={24} />
+          <Feather name="arrow-left" color="#76448A" size={24} />
         </TouchableOpacity>
 
         <Text style={styles.title}>Bem vindo</Text>
         <Text style={styles.description}>
-          Encontre no mapa um pronto de coleta.
+          Encontre no mapa um pronto de doação.
         </Text>
 
         <View style={styles.mapContainer}>

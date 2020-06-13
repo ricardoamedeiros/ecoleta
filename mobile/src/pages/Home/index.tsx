@@ -44,11 +44,10 @@ const Home = () => {
 
           <View>
             <Text style={styles.title}>
-              Seu marketplace de coleta de resíduos
+              Seu aplicativo para salvar vidas ameaçadas pelo COVID-19.
             </Text>
             <Text style={styles.description}>
-              Ajudamos pessoas a encontrarem pontos de coleta de forma
-              eficiente.
+              Encontre pontos para realizar doação, ajudar ou receber ajuda.
             </Text>
           </View>
         </View>

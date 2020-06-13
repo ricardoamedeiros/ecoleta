@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#34CB79',
+    backgroundColor: '#8E44AD',
     height: 60,
     flexDirection: 'row',
     borderRadius: 10,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   buttonIcon: {
     height: 60,
     width: 60,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#76448A',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -56,13 +56,13 @@ const Detail = () => {
 
   function handleWhatsapp() {
     Linking.openURL(
-      `whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse em ajudar na coleta de resíduos`
+      `whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse em ajudar`
     );
   }
 
   function handleComposeMail() {
     MailComposer.composeAsync({
-      subject: 'Interesse na coleta de resíduos',
+      subject: 'Interesse na ajuda',
       recipients: [data.point.email],
     });
   }
@@ -74,7 +74,7 @@ const Detail = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <TouchableOpacity onPress={handleNavigateBack}>
-          <Feather name="arrow-left" color="#34CB79" size={24} />
+          <Feather name="arrow-left" color="#76448A" size={24} />
         </TouchableOpacity>
 
         <Image

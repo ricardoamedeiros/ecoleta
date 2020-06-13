@@ -11,20 +11,20 @@ const Home = () => {
     <div id="page-home">
       <div className="content">
         <header>
-          <img src={logo} alt="Ecoleta" />
+          <img src={logo} alt="Liveforever" />
         </header>
 
         <main>
-          <h1>Seu marketplace de coleta de resíduos.</h1>
+          <h1>Seu aplicativo para salvar vidas ameaçadas pelo COVID-19.</h1>
           <p>
-            Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.
+            Encontre pontos para realizar doação, ajudar ou receber ajuda.
           </p>
 
           <Link to="/create-point">
             <span>
               <FiLogIn />
             </span>
-            <strong>Cadastre um pronto de coleta</strong>
+            <strong>Cadastre um ponto de doação</strong>
           </Link>
         </main>
       </div>
