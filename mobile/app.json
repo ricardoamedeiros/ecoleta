@@ -7,13 +7,13 @@
       "android",
       "web"
     ],
-    "version": "2.0.2",
+    "version": "2.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#EBDEF0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
