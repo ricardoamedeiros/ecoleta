@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Ecoleta",
-    "slug": "ecoleta",
+    "name": "Liveforever",
+    "slug": "liveforever",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,7 +22,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.ultrapar.liveforever",
+      "supportsTablet": false
     }
   }
 }
