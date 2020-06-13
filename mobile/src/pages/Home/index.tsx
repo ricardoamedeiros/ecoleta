@@ -40,7 +40,9 @@ const Home = () => {
         imageStyle={{ width: 274, height: 368 }}
       >
         <View style={styles.main}>
-          <Image source={require('../../assets/logo.png')} />
+          <Text style={styles.title}>
+            Liveforever
+          </Text>
 
           <View>
             <Text style={styles.title}>
