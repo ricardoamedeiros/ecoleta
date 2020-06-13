@@ -56,7 +56,7 @@ const Detail = () => {
 
   function handleWhatsapp() {
     Linking.openURL(
-      `whatsapp://send?phone=${data.point.whatsapp}&text=Tenho interesse em ajudar`
+      `whatsapp://send?phone=${'55'+data.point.whatsapp.replace('.0', '')}&text=Tenho interesse em ajudar`
     );
   }
 

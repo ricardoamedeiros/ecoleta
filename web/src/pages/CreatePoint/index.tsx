@@ -197,6 +197,7 @@ const CreatePoint = () => {
             <div className="field">
               <label htmlFor="email">E-mail</label>
               <input
+                required
                 type="email"
                 name="email"
                 id="email"
@@ -206,6 +207,7 @@ const CreatePoint = () => {
             <div className="field">
               <label htmlFor="whatsapp">Whatsapp</label>
               <input
+                required
                 type="text"
                 name="whatsapp"
                 id="whatsapp"
