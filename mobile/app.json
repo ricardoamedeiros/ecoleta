@@ -23,7 +23,10 @@
     ],
     "ios": {
       "bundleIdentifier": "com.ultrapar.liveforever",
-      "supportsTablet": false
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "O aplicativo usa a sua localização para encontrar os locais de doação mais próximos"
+      }
     }
   }
 }

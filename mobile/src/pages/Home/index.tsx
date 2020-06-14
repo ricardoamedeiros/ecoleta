@@ -46,7 +46,7 @@ const Home = () => {
 
           <View>
             <Text style={styles.title}>
-              Seu aplicativo para salvar vidas ameaçadas pelo COVID-19.
+              Seu aplicativo para ajudar pessoas.
             </Text>
             <Text style={styles.description}>
               Encontre pontos para realizar doação, ajudar ou receber ajuda.

@@ -15,7 +15,7 @@ const Home = () => {
         </header>
 
         <main>
-          <h1>Seu aplicativo para salvar vidas ameaçadas pelo COVID-19.</h1>
+          <h1>Seu aplicativo para ajudar pessoas</h1>
           <p>
             Encontre pontos para realizar doação, ajudar ou receber ajuda.
           </p>
