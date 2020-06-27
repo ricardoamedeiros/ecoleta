@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
   itemsContainer: {
     flexDirection: 'row',
     marginTop: 16,
-    marginBottom: 32,
   },
 
   item: {
@@ -94,6 +93,32 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_400Regular',
     textAlign: 'center',
     fontSize: 13,
+  },
+  button: {
+    backgroundColor: '#8E44AD',
+    height: 60,
+    flexDirection: 'row',
+    borderRadius: 10,
+    overflow: 'hidden',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+
+  buttonIcon: {
+    height: 60,
+    width: 60,
+    backgroundColor: '#76448A',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  buttonText: {
+    flex: 1,
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
+    fontFamily: 'Roboto_500Medium',
+    fontSize: 16,
   },
 });
 

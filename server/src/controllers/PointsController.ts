@@ -5,7 +5,7 @@ import ItemsController from './ItemsController';
 class PointsController {
   async index(request: Request, response: Response) {
     const { city, uf, items } = request.query;
-
+    
     const parsedItems = String(items)
       .split(',')
       .map((item) => Number(item.trim()));
@@ -13,8 +13,8 @@ class PointsController {
     const points = await knex('points')
       .join('point_items', 'points.id', '=', 'point_items.point_id')
       .whereIn('point_items.item_id', parsedItems)
-      .where('city', String(city))
-      .where('uf', String(uf))
+  //    .where('city', String(city))
+  //    .where('uf', String(uf))
       .distinct()
       .select('points.*');
 
@@ -29,6 +29,7 @@ class PointsController {
   }
 
   async show(request: Request, response: Response) {
+    console.log('teste')
     const { id } = request.params;
 
     const point = await knex('points').where('id', id).first();
@@ -59,13 +60,13 @@ class PointsController {
       longitude,
       city,
       uf,
-      items,
+      selectedItems,
     } = request.body;
 
     const trx = await knex.transaction();
 
     const point = {
-      image: request.file.filename,
+      image: '3c04d3d22308-market.jpeg',
       name,
       email,
       whatsapp,
@@ -79,15 +80,15 @@ class PointsController {
 
     const point_id = insertedIds[0];
 
-    const pointItems = items
-      .split(',')
-      .map((item: string) => Number(item.trim()))
-      .map((item_id: number) => {
-        return {
-          item_id,
+   
+
+    const pointItems = {
+          item_id: selectedItems.item_id,
           point_id,
         };
-      });
+
+
+        console.log('pointItems', pointItems)
 
     await trx('point_items').insert(pointItems);
 

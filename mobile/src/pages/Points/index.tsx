@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
@@ -112,6 +113,10 @@ const Points = () => {
     navigation.goBack();
   }
 
+  function handleNavigateNovoPonto() {
+    navigation.navigate('New');
+  }
+
   function handleNavigateToDetail(id: number) {
     navigation.navigate('Detail', { point_id: id });
   }
@@ -122,11 +127,37 @@ const Points = () => {
         <TouchableOpacity onPress={handleNavigateBack}>
           <Feather name="arrow-left" color="#76448A" size={24} />
         </TouchableOpacity>
+        <RectButton style={styles.button} onPress={handleNavigateNovoPonto}>
+            <Text style={styles.buttonText}>Novo ponto</Text>
+          </RectButton>
 
         <Text style={styles.title}>Bem vindo</Text>
         <Text style={styles.description}>
-          Encontre no mapa um pronto de doação.
+          Selecione um tipo de doação e encontre no mapa um pronto de doação.
         </Text>
+
+        <View style={styles.itemsContainer}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          
+        >
+          {items.map((item) => (
+            <TouchableOpacity
+              key={String(item.id)}
+              style={[
+                styles.item,
+                selectedItems.includes(item.id) ? styles.selectedItem : {},
+              ]}
+              onPress={() => handleSelectItem(item.id)}
+              activeOpacity={0.6}
+            >
+              <SvgUri width={42} height={42} uri={item.image_url} />
+              <Text style={styles.itemTitle}>{item.title}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
 
         <View style={styles.mapContainer}>
           {initialPosition[0] !== 0 && (
@@ -164,29 +195,6 @@ const Points = () => {
             </MapView>
           )}
         </View>
-      </View>
-
-      <View style={styles.itemsContainer}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 20 }}
-        >
-          {items.map((item) => (
-            <TouchableOpacity
-              key={String(item.id)}
-              style={[
-                styles.item,
-                selectedItems.includes(item.id) ? styles.selectedItem : {},
-              ]}
-              onPress={() => handleSelectItem(item.id)}
-              activeOpacity={0.6}
-            >
-              <SvgUri width={42} height={42} uri={item.image_url} />
-              <Text style={styles.itemTitle}>{item.title}</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
       </View>
     </SafeAreaView>
   );

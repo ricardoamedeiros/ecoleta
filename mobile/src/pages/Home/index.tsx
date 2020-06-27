@@ -19,8 +19,8 @@ import styles from './styles';
 const Home = () => {
   const navigation = useNavigation();
 
-  const [uf, setUf] = useState('');
-  const [city, setCity] = useState('');
+  const [uf, setUf] = useState('DF');
+  const [city, setCity] = useState('Brasília');
 
   function handleNavigateToPoints() {
     navigation.navigate('Points', {
@@ -49,30 +49,12 @@ const Home = () => {
               Seu aplicativo para ajudar pessoas.
             </Text>
             <Text style={styles.description}>
-              Encontre pontos para realizar doação, ajudar ou receber ajuda.
+              Encontre pontos para realizar doação, ajudar ou cadastra um novo ponto.
             </Text>
           </View>
         </View>
 
         <View style={styles.footer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Digite a UF"
-            value={uf}
-            onChangeText={setUf}
-            maxLength={2}
-            autoCorrect={false}
-            autoCapitalize="characters"
-          />
-
-          <TextInput
-            style={styles.input}
-            placeholder="Digite a cidade"
-            value={city}
-            onChangeText={setCity}
-            autoCorrect={false}
-          />
-
           <RectButton style={styles.button} onPress={handleNavigateToPoints}>
             <View style={styles.buttonIcon}>
               <Feather name="arrow-right" color="#fff" size={24} />

@@ -21,18 +21,17 @@ routes.get('/points', pointsController.index);
 
 routes.post(
   '/points',
-  upload.single('image'),
   celebrate(
     {
       body: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().required().email(),
-        whatsapp: Joi.number().required(),
-        latitude: Joi.number().required(),
-        longitude: Joi.number().required(),
+        whatsapp: Joi.string().required(),
+        latitude: Joi.string().required(),
+        longitude: Joi.string().required(),
         city: Joi.string().required(),
         uf: Joi.string().required(),
-        items: Joi.string().required(),
+        selectedItems: Joi.object(),
       }),
     },
     {
