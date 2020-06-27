@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 32,
+    padding: 10,
   },
 
   main: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
   title: {
     color: '#322153',
-    fontSize: 30,
+    fontSize: 25,
     fontFamily: 'Ubuntu_700Bold',
     maxWidth: 260,
     marginTop: 30,

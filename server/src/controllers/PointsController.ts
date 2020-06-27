@@ -29,7 +29,6 @@ class PointsController {
   }
 
   async show(request: Request, response: Response) {
-    console.log('teste')
     const { id } = request.params;
 
     const point = await knex('points').where('id', id).first();
@@ -52,6 +51,7 @@ class PointsController {
   }
 
   async create(request: Request, response: Response) {
+    console.log(request.body)
     const {
       name,
       email,

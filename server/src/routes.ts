@@ -24,13 +24,13 @@ routes.post(
   celebrate(
     {
       body: Joi.object().keys({
-        name: Joi.string().required(),
-        email: Joi.string().required().email(),
-        whatsapp: Joi.string().required(),
-        latitude: Joi.string().required(),
-        longitude: Joi.string().required(),
-        city: Joi.string().required(),
-        uf: Joi.string().required(),
+        name: Joi.string(),
+        email: Joi.string(),
+        whatsapp: Joi.string(),
+        latitude: Joi.string(),
+        longitude: Joi.string(),
+        city: Joi.string(),
+        uf: Joi.string(),
         selectedItems: Joi.object(),
       }),
     },

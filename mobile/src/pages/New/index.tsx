@@ -7,7 +7,11 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
-  Picker
+  Picker,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+  Linking,
 } from 'react-native';
 import * as Location from 'expo-location';
 
@@ -26,10 +30,10 @@ const Home = () => {
   const [whatsapp, setWhatsapp] = useState('');
 
 
-  const [uf, setUf] = useState('');
-  const [city, setCity] = useState('');
+  const [uf, setUf] = useState('DF');
+  const [city, setCity] = useState('Brasília');
 
-  const [selectedItems, setSelectedItems] = useState('left');
+  const [selectedItems, setSelectedItems] = useState({"item_id":5, item: "Alimentos"});
 
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
@@ -51,7 +55,7 @@ const Home = () => {
     const [latitude, longitude] = initialPosition;
     //const items = selectedItems;
 
-    const data = {selectedItems, name, email, whatsapp, uf: 'DF', city: 'Brasília', latitude: String(latitude), longitude: String(longitude) };
+    const data = {selectedItems, name, email, whatsapp, uf, city, latitude: String(latitude), longitude: String(longitude) };
    // data.append('items', items.join(','));
     console.log('data', data)
     
@@ -87,11 +91,20 @@ const Home = () => {
     loadPosition();
   }, []);
 
+  function handleNavigateBack() {
+    navigation.goBack();
+  }
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, marginBottom: 25 }}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
+      <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={handleNavigateBack}>
+          <Feather name="arrow-left" color="#76448A" size={24} />
+        </TouchableOpacity>
       <ImageBackground
         style={styles.container}
         source={require('../../assets/home-background.png')}
@@ -138,7 +151,7 @@ const Home = () => {
         <Picker
           selectedValue={selectedItems}
           onValueChange={hand => {setSelectedItems( hand ); console.log(selectedItems)}}
-          mode="dialog">
+          mode="dropdown">
           <Picker.Item label="Alimentos" value={{"item_id":5, item: "Alimentos"}} />
           <Picker.Item label="Álcool em gel" value={{"item_id":2, item: "Álcool em gel"}} />
           <Picker.Item label="Bebidas" value={{"item_id":6, item: "Bebidas"}} />
@@ -154,6 +167,8 @@ const Home = () => {
           </RectButton>
         </View>
       </ImageBackground>
+      </View>
+    </SafeAreaView>
     </KeyboardAvoidingView>
   );
 };
