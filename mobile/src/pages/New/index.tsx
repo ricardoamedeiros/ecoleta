@@ -33,7 +33,7 @@ const Home = () => {
   const [uf, setUf] = useState('DF');
   const [city, setCity] = useState('Brasília');
 
-  const [selectedItems, setSelectedItems] = useState({"item_id":5, item: "Alimentos"});
+  const [selectedItems, setSelectedItems] = useState();
 
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
@@ -110,13 +110,6 @@ const Home = () => {
         source={require('../../assets/home-background.png')}
         imageStyle={{ width: 274, height: 368 }}
       >
-
-        <Text style={styles.title}>
-          Cadastro do
-          ponto de coleta
-          </Text>
-        <Text style={styles.title}></Text>
-
         <View>
           <TextInput
             style={styles.input}
@@ -143,21 +136,17 @@ const Home = () => {
             autoCorrect={false}
             autoCapitalize="characters"
           />
-
-        <Text style={styles.description}>
-          Doação preferêncial
-          </Text>
-
+        <Text style={styles.description}>Ajuda preferencial:</Text>
         <Picker
           selectedValue={selectedItems}
-          onValueChange={hand => {setSelectedItems( hand ); console.log(selectedItems)}}
+          onValueChange={(hand) => {setSelectedItems( hand ); console.log(hand)}}
           mode="dropdown">
-          <Picker.Item label="Alimentos" value={{"item_id":5, item: "Alimentos"}} />
-          <Picker.Item label="Álcool em gel" value={{"item_id":2, item: "Álcool em gel"}} />
-          <Picker.Item label="Bebidas" value={{"item_id":6, item: "Bebidas"}} />
-          <Picker.Item label="Financeiro" value={{"item_id":4, item: "Financeiro"}} />
-          <Picker.Item label="Produtos" value={{"item_id":1, item: "Alimentos"}} />
-          <Picker.Item label="Serviço" value={{"item_id":3, item: "Serviço"}} />
+          <Picker.Item label="Alimentos" value={5} />
+          <Picker.Item label="Álcool em gel" value={2} />
+          <Picker.Item label="Bebidas" value={6} />
+          <Picker.Item label="Financeiro" value={4} />
+          <Picker.Item label="Produtos" value={1} />
+          <Picker.Item label="Serviço" value={3} />
         </Picker>
           <RectButton style={styles.button} onPress={handleSubmit}>
             <View style={styles.buttonIcon}>

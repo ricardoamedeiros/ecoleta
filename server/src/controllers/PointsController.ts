@@ -5,7 +5,7 @@ import ItemsController from './ItemsController';
 class PointsController {
   async index(request: Request, response: Response) {
     const { city, uf, items } = request.query;
-    
+
     const parsedItems = String(items)
       .split(',')
       .map((item) => Number(item.trim()));
@@ -13,8 +13,8 @@ class PointsController {
     const points = await knex('points')
       .join('point_items', 'points.id', '=', 'point_items.point_id')
       .whereIn('point_items.item_id', parsedItems)
-  //    .where('city', String(city))
-  //    .where('uf', String(uf))
+      //    .where('city', String(city))
+      //    .where('uf', String(uf))
       .distinct()
       .select('points.*');
 
@@ -47,7 +47,36 @@ class PointsController {
       .where('point_items.point_id', id)
       .select('items.title');
 
-    return response.json({ point: serializedPoint, items });
+    const avaliacoes = await knex('avaliacao')
+      .where('avaliacao.point_id', id)
+      .select('avaliacao.*');
+
+    return response.json({ point: serializedPoint, items, avaliacoes });
+  }
+
+  async createAvaliacao(request: Request, response: Response) {
+    console.log(request.body)
+    const {
+      name,
+      descricao,
+      rating,
+      point_id
+    } = request.body;
+
+    const trx = await knex.transaction();
+
+    const point = {
+      name,
+      descricao,
+      rating,
+      point_id
+    };
+
+    const insertedIds = await trx('avaliacao').insert(point);
+
+    await trx.commit();
+
+    return response.json(insertedIds);
   }
 
   async create(request: Request, response: Response) {
@@ -80,15 +109,12 @@ class PointsController {
 
     const point_id = insertedIds[0];
 
-   
+
 
     const pointItems = {
-          item_id: selectedItems.item_id,
-          point_id,
-        };
-
-
-        console.log('pointItems', pointItems)
+      item_id: selectedItems,
+      point_id,
+    };
 
     await trx('point_items').insert(pointItems);
 

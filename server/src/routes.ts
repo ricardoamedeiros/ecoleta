@@ -31,7 +31,7 @@ routes.post(
         longitude: Joi.string(),
         city: Joi.string(),
         uf: Joi.string(),
-        selectedItems: Joi.object(),
+        selectedItems: Joi.number(),
       }),
     },
     {
@@ -39,6 +39,24 @@ routes.post(
     }
   ),
   pointsController.create
+);
+
+routes.post(
+  '/avaliacao',
+  celebrate(
+    {
+      body: Joi.object().keys({
+        name: Joi.string(),
+        descricao: Joi.string(),
+        rating: Joi.number(),
+        point_id: Joi.number()
+      }),
+    },
+    {
+      abortEarly: false,
+    }
+  ),
+  pointsController.createAvaliacao
 );
 
 export default routes;

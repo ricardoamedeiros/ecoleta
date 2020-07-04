@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, marginBottom: 25 }}
+      style={{ flex: 1, marginBottom: 15 }}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ImageBackground
@@ -49,11 +49,12 @@ const Home = () => {
               Seu aplicativo para ajudar pessoas.
             </Text>
             <Text style={styles.description}>
-              Encontre pontos para realizar doação, ajudar ou cadastra um novo ponto.
+              Encontre estabelecimentos para realizar doações, receber ajuda, cadastrar um novo estabelecimento, 
+              entrar em contato instituições de ajuda, deixar sua avaliação com comentário ou verificar a pontuação do estabelecimento.
             </Text>
           </View>
         </View>
-
+  
         <View style={styles.footer}>
           <RectButton style={styles.button} onPress={handleNavigateToPoints}>
             <View style={styles.buttonIcon}>
@@ -62,6 +63,7 @@ const Home = () => {
             <Text style={styles.buttonText}>Entrar</Text>
           </RectButton>
         </View>
+       
       </ImageBackground>
     </KeyboardAvoidingView>
   );
