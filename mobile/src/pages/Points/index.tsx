@@ -130,10 +130,8 @@ const Points = () => {
         <RectButton style={styles.button} onPress={handleNavigateNovoPonto}>
             <Text style={styles.buttonText}>Novo ponto</Text>
           </RectButton>
-
-        <Text style={styles.title}>Bem vindo</Text>
         <Text style={styles.description}>
-          Selecione um tipo de doação e encontre no mapa um pronto de doação.
+          Selecione tema abaixo e encontre no mapa estabelecimentos para doação.
         </Text>
 
         <View style={styles.itemsContainer}>

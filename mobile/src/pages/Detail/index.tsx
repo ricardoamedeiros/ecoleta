@@ -108,11 +108,13 @@ const Detail = () => {
     
     try {
       await api.post('/avaliacao', body );
-      alert('Avaliação salva com sucesso');
-      setModalVisible(false);
-      handleNavigateBack();
+      Alert.alert('Avaliação salva com sucesso. Redirecionando...');
+      setTimeout(()=>{
+        setModalVisible(false);
+        handleNavigateBack();
+      }, 3000)
     } catch (error) {
-      alert('Erro ao salvar avaliação');
+      Alert.alert('Erro ao salvar avaliação. Preencha todos os campos.');
     }
   }
 
@@ -202,23 +204,9 @@ const Detail = () => {
         </Text>
 
         <View style={styles.address}>
-          <Text style={styles.addressTitle}>Endereço:</Text>
+          <Text style={styles.addressTitle}>Contato:</Text>
           <Text style={styles.addressContent}>
-            {data.point.city}, {data.point.uf}
-          </Text>
-        </View>
-
-        <View style={styles.address}>
-          <Text style={styles.addressTitle}>Whatsapp:</Text>
-          <Text style={styles.addressContent}>
-            {data.point.whatsapp}
-          </Text>
-        </View>
-
-        <View style={styles.address}>
-          <Text style={styles.addressTitle}>E-mail:</Text>
-          <Text style={styles.addressContent}>
-            {data.point.email}
+            {data.point.whatsapp} -  {data.point.email}
           </Text>
         </View>
         <Text style={styles.addressTitle}>Avaliações:</Text>
@@ -245,7 +233,7 @@ const Detail = () => {
 
         <RectButton style={styles.button} onPress={()=>setModalVisible(true)}>
           <Feather name="star" size={10} color="#fff" />
-          <Text style={styles.buttonText}>Avaliação</Text>
+          <Text style={styles.buttonText}>Avaliar</Text>
         </RectButton>
 
       </View>

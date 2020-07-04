@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 5,
     textAlign: "center"
   },
 

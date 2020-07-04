@@ -61,7 +61,7 @@ const Home = () => {
     
     await api.post('/points', data );
 
-    alert('Ponto de coleta criado');
+    Alert.alert('Ponto de coleta criado');
 
     handleNavigateToPoints();
   }
